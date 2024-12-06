@@ -1,4 +1,4 @@
-name: Shared Actions Example
+name: Cron Example
 
 on:
   workflow_dispatch:  # This is a manual trigger
