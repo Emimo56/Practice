@@ -9,17 +9,17 @@ jobs:
 
     defaults:
       run:
-        working-directory: typescript-project
+        working-directory: ./typescript-project  # Ensure this path is correct
 
     steps:
       - uses: actions/checkout@v2
 
       # Setup Node.js
-      - name: Setup Node.js 1
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "16.x"
-          cache: 'yarn'
+          cache: 'yarn'  # Caching Yarn dependencies
 
       # Install Yarn
       - name: Install Yarn
@@ -27,12 +27,13 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile  # Ensure yarn.lock exists in the working directory
 
       # Run linting
       - name: Run linting
         run: yarn lint
-      # complete the code
+
+      # Build project
       - name: Build project
         run: yarn build
 
